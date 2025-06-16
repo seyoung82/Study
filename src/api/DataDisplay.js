@@ -35,20 +35,30 @@ function DataDisplay() {
     
   })
   return (
-    <>
-
-    {
-      isFetching ? (
-        console.log(isFetching)
-      ) : (
-        <>
-          isError ? (
-            console.log("error")
-          ) :()
-          
-        </>
-      )
-    }
+   <>
+    	{
+          isFetching ? (
+          	<Fetching />
+          ) : (
+    		<>
+    		  {
+              	isError ? (
+                	<Error />
+                ) : (
+  					<>
+    					        <Data data={data} />
+                    	<button onClick={handleFetch}>
+                          fetch
+                    	</button>
+						          <button onClick={handleInvalidate}>
+                          invalidate
+                    	</button>
+    				</>
+  				)
+              }
+    	  	</>
+    	  )
+        }
     </>
   )
 }
